@@ -4,13 +4,13 @@
   box-sizing: border-box;
 
 }
-
+/* 
 #root {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .App {
   text-align: center;
@@ -19,31 +19,20 @@
   
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 h3 {
   margin: 0 10px;
 }
 
-.navbar {
+/* .navbar {
   height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0 20px;
   background: lightgrey;
-}
+} */
 
-.navbar__links{
+/* .navbar__links{
   margin-left: auto;
 
-}
+} */

@@ -1,12 +1,14 @@
-import About from "../pages/About"
-import Login from "../pages/Login"
+import PageTwo from "../pages/PageTwo"
+import SignIn from "../pages/SignIn"
 
 
 
 export const privatRoutes = [
-    {path: '/about', component: About, exact: true},
+    {path: '/pageTwo', component: PageTwo, exact: true},
 ]
 
 export const publicRoutes = [
-    {path: '/login', component: Login, exact: true},
+    {path: '/signIn', component: SignIn, exact: true},
+    
+    
 ]

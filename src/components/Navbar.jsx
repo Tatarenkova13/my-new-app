@@ -2,7 +2,11 @@ import { Button } from "@mui/material";
 import React, { useContext } from "react";
 import { Link } from 'react-router-dom';
 import { AuthContext } from "../context";
-
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import CssBaseline from '@mui/material/CssBaseline';
+import GlobalStyles from '@mui/material/GlobalStyles';
 
 const Navbar = () => {
 
@@ -27,10 +31,9 @@ const Navbar = () => {
             </div>
             :
             <div className='navbar'>
-                <Button onClick={logout}>Выйти</Button>
-                <h3> Info </h3>
-                <h3> Info </h3>
-                <h3> Info </h3>
+                <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
+                <CssBaseline />
+
             </div>
             }
             

@@ -22,7 +22,7 @@ function App() {
             setIsAuth: setIsAuth,
         }}>
             <BrowserRouter>
-                <Navbar />
+                {/* <Navbar /> */}
                 <AppRouter />
             </BrowserRouter>
         </AuthContext.Provider>
