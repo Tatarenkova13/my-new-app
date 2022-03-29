@@ -12,18 +12,11 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import { AuthContext } from '../context';
 import { Outlet } from 'react-router-dom';
+import DataGridDemo from '../components/DataGrid';
 
 
 
-function Welcome() {
-
-  const {isAuth, setIsAuth} = React.useContext(AuthContext)
-
-  const logout = (e) => {
-      e.preventDefault();
-      setIsAuth(false)
-      localStorage.removeItem('auth')
-  }
+function Requests() {
 
   return (
     <React.Fragment>
@@ -40,24 +33,16 @@ function Welcome() {
                             Welcome
                         </Typography>
                         <nav>
-                            <Link
-                                variant="button"
-                                color="text.primary"
-                                href="#"
-                                sx={{ my: 1, mx: 1.5 }}
-                            >
-                               Ссылка
-                            </Link>
-
+                            
                             <Link
                                 variant="button"
                                 color="text.primary"
                                 href="/requestPage"
                                 sx={{ my: 1, mx: 1.5 }}
                             >
-                                Заявки
+                                Ссылка
                             </Link>
-                            
+
                             <Link
                                 variant="button"
                                 color="text.primary"
@@ -68,29 +53,25 @@ function Welcome() {
                             </Link>
                         </nav>
                       
-                        <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }} onClick={logout}>
-                            Выйти
+                        <Button href="/" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                            На главную
                         </Button>
                     </Toolbar>
                 </AppBar>
       {/* Hero unit */}
-      <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
+      <Container disableGutters maxWidth="md" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography
           component="h1"
-          variant="h2"
+          variant="h4"
           align="center"
           color="text.primary"
           gutterBottom
         >
-          Hello world
+          Согласование заявок
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" component="p">
-          
+          <DataGridDemo />
         </Typography>
-      </Container>
-      {/* End hero unit */}
-      <Container maxWidth="md" component="main">
-       
       </Container>
       {/* Footer */}
       <Container
@@ -109,6 +90,6 @@ function Welcome() {
   );
 }
 
-export default function PageTwo() {
-  return <Welcome />;
+export default function RequestPage() {
+  return <Requests />;
 }

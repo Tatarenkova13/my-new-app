@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Navigate, Outlet, Redirect, Route, Routes, Switch } from 'react-router-dom';
 import { AuthContext } from "../context";
 import { publicRoutes, privatRoutes } from "../router/routes";
 
@@ -11,31 +11,35 @@ const AppRouter = () => {
     return (
         isAuth
         ?
-        <Switch>
+        <Routes>
             {privatRoutes.map(route =>
                 <Route
                     component={route.component}
                     path = {route.path}
                     exact = {route.exact}
+                    element = {route.element}
                     key = {route.path}
                 />
             )}
-            <Redirect to='/pageTwo'/>
-        </Switch>
+            <Route path='signIn' element={<Navigate to='/' />} />
+        </Routes>
         :
-        <Switch>
+        <Routes>
             {publicRoutes.map(route =>
                 <Route
                     component={route.component}
                     path = {route.path}
+                    element = {route.element}
                     exact = {route.exact}
                     key = {route.path}
                 />
             )}
-            <Redirect to='/signIn'/>
-        </Switch>
+            <Route path='/' element={<Navigate to='/signIn' />} />
+        </Routes>
         
     )
 }
+
+
 
 export default AppRouter;
