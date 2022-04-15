@@ -21,10 +21,10 @@ function App() {
             isAuth,
             setIsAuth: setIsAuth,
         }}>
-            <BrowserRouter>
+            
                 {/* <Navbar /> */}
                 <AppRouter />
-            </BrowserRouter>
+            
         </AuthContext.Provider>
     </div>
   );

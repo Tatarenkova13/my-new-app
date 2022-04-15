@@ -10,10 +10,12 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AuthContext } from '../context';
+import { Outlet} from 'react-router-dom';
 
 const theme = createTheme();
 
 export default function SignIn() {
+
   const {isAuth, setIsAuth} = React.useContext(AuthContext)
   const [error, setError] = React.useState('')
 
@@ -92,6 +94,7 @@ export default function SignIn() {
           </Box>
         </Box>
       </Container>
+      <Outlet />
     </ThemeProvider>
   );
 }
