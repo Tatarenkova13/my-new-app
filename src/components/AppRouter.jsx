@@ -1,42 +1,44 @@
 import React, { useContext } from "react";
 import { Navigate, Outlet, Redirect, Route, Routes, Switch } from 'react-router-dom';
 import { AuthContext } from "../context";
-import { publicRoutes, privatRoutes } from "../router/routes";
+import PageTwo from "../pages/PageTwo";
+import RequestPage from "../pages/RequestPage";
+import SignIn from "../pages/SignIn";
 
 const AppRouter = () => {
 
     const {isAuth} = useContext(AuthContext);
     console.log(isAuth)
 
+
+    const ProtectedRoute = ({ isAuth, children }) => {
+        if (!isAuth) {
+            return <Navigate to="/signIn" replace />;
+        }
+        return children;
+    };
+
     return (
-        isAuth
-        ?
         <Routes>
-            {privatRoutes.map(route =>
-                <Route
-                    component={route.component}
-                    path = {route.path}
-                    exact = {route.exact}
-                    element = {route.element}
-                    key = {route.path}
-                />
-            )}
-            <Route path='signIn' element={<Navigate to='/' />} />
+            <Route 
+                path="/" 
+                element={
+                    <ProtectedRoute isAuth={isAuth}>
+                        <PageTwo />
+                    </ProtectedRoute>
+                } 
+            />
+            <Route 
+                path="requestPage" 
+                element={
+                    <ProtectedRoute isAuth={isAuth}>
+                        <RequestPage />
+                    </ProtectedRoute>
+                } 
+            />
+            <Route path="signIn" element={<SignIn />} />
+            <Route path="*" element={<p>There's nothing here: 404!</p>} />
         </Routes>
-        :
-        <Routes>
-            {publicRoutes.map(route =>
-                <Route
-                    component={route.component}
-                    path = {route.path}
-                    element = {route.element}
-                    exact = {route.exact}
-                    key = {route.path}
-                />
-            )}
-            <Route path='/' element={<Navigate to='/signIn' />} />
-        </Routes>
-        
     )
 }
 
