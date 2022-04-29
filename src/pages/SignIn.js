@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AuthContext } from '../context';
 import { Outlet} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const theme = createTheme();
 
@@ -36,6 +37,10 @@ export default function SignIn() {
     });
 
   };
+
+  if (isAuth) {
+    return <Navigate to="/" replace />
+  }
 
   return (
     <ThemeProvider theme={theme}>
